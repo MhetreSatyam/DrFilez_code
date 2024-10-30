@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="DrFilEz">
+    <meta name="description" content="Efficient health records management">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>DrFilEz - Efficient Health Records Management</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/logo.jpg">
+
+    <!-- ======= Styles ====== -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .details table {
+            width: 100%;
+            border-collapse: collapse;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @media (max-width: 768px) {
+            .details table {
+                width: 90%;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .details table {
+                width: 95%;
+                max-width: 100%;
+            }
+        }
+
+
+        /* Media Query for screens smaller than 768px (e.g., mobile devices) */
+        @media (max-width: 768px) {
+            .details .recentOrders table {
+                overflow: auto;
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+
+            .details .recentOrders table tr {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .details .recentOrders table td {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .details .recentOrders table tr:not(:last-child) {
+                border-bottom: 1px solid var(--black1);
+            }
+
+            .details .recentOrders table tr:first-child {
+
+                height: 100%;
+                overflow: hidden;
+            }
+
+            .details .recentOrders table tr:first-child img {
+               
+                height: 100%;
+                width: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="title">DrFilEz</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="dashboard(Profile).html">
+                        <span class="icon">
+                            <ion-icon name="home"></ion-icon>
+                        </span>
+                        <span class="title">Profile</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Patients.html">
+                        <span class="icon">
+                            <ion-icon name="people"></ion-icon>
+                        </span>
+                        <span class="title">Patients</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="addPatients.html">
+                        <span class="icon">
+                            <ion-icon name="person-add"></ion-icon>
+                        </span>
+                        <span class="title">Add patients</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="help.html">
+                        <span class="icon">
+                            <ion-icon name="help-circle"></ion-icon>
+                        </span>
+                        <span class="title">Help</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="change_password.html">
+                        <span class="icon">
+                            <ion-icon name="lock-closed"></ion-icon>
+                        </span>
+                        <span class="title">Password</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="index.html">
+                        <span class="icon">
+                            <ion-icon name="log-out"></ion-icon>
+                        </span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+
+            <!-- ======================= Title ================== -->
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+            </div>
+            <div class="profileTitle">
+                <h1>Your Profile</h1>
+            </div>
+            <!-- ================ Profile Details ================= -->
+            <div class="details">
+                <div class="recentOrders">
+                    <table>
+                        <td rowspan="8">
+                            <div id="userPhoto"></div>
+                        </td>
+                        <tr>
+                            <td>Name: </td>
+                            <td id="name"></td>
+                        </tr>
+                        <tr>
+                            <td>Username: </td>
+                            <td id="username"></td>
+                        </tr>
+                        <tr>
+                            <td>Email: </td>
+                            <td id="email"></td>
+                        </tr>
+                        <tr>
+                            <td>Gender: </td>
+                            <td id="gender"></td>
+                        </tr>
+                        <tr>
+                            <td>Civil status: </td>
+                            <td id="civil"></td>
+                        </tr>
+                        <tr>
+                            <td>Age: </td>
+                            <td id="age"></td>
+                        </tr>
+                        <tr>
+                            <td>Contact Number: </td>
+                            <td id="contact_number"></td>
+                        </tr>
+                        <tr>
+                            <td>Address: </td>
+                            <td id="address" colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <td>Qualifications: </td>
+                            <td id="qualifications" colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <td>Specializations: </td>
+                            <td id="specialization" colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <td>Working at: </td>
+                            <td id="working_at" colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <td>Clinical Experience: </td>
+                            <td id="experience" colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <td>Degree Certifications: </td>
+                            <td id="degree_certificate" colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <a href="editProfile.html" style="text-decoration: none; margin-right: 45%;">
+                                    <button class="my-button">
+                                        Edit Profile
+                                    </button>
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Fetch user data from profile.php and update HTML
+        fetch('profile.php')
+            .then(response => response.json())
+            .then(userData => {
+                // Check if userData is not empty
+                if (Object.keys(userData).length !== 0) {
+                    document.getElementById('name').innerText = userData.name || 'N/A';
+                    document.getElementById('username').innerText = userData.username || 'N/A';
+                    document.getElementById('email').innerText = userData.email || 'N/A';
+                    document.getElementById('gender').innerText = userData.gender || 'N/A';
+                    document.getElementById('civil').innerText = userData.civil || 'N/A';
+                    document.getElementById('age').innerText = userData.age || 'N/A';
+                    document.getElementById('contact_number').innerText = userData.contact_number || 'N/A';
+                    document.getElementById('qualifications').innerText = userData.qualifications || 'N/A';
+                    document.getElementById('address').innerText = userData.address || 'N/A';
+                    document.getElementById('working_at').innerText = userData.working_at || 'N/A';
+                    document.getElementById('specialization').innerText = userData.specialization || 'N/A';
+                    document.getElementById('experience').innerText = userData.experience || 'N/A';
+                    document.getElementById('degree_certificate').innerHTML =
+                        `<a href="uploads/${userData.degree_certificate}" target="_blank" style="color: #808080;">View Degree Certificate</a>` ||
+                        'N/A';
+                    document.getElementById('userPhoto').innerHTML =
+                        `<img src="uploads/${userData.userPhoto}" alt="User Photo">` || 'N/A';
+                } else {
+                    // Handle case where userData is empty (user not found)
+                    console.log('User not found.');
+                }
+            })
+            .catch(error => {
+                // Handle fetch error
+                console.error('Error fetching user data:', error);
+            });
+
+        // add hovered class to selected list item
+        let list = document.querySelectorAll(".navigation li");
+
+        function activeLink() {
+            list.forEach((item) => {
+                item.classList.remove("hovered");
+            });
+            this.classList.add("hovered");
+        }
+
+        list.forEach((item) => item.addEventListener("mouseover", activeLink));
+
+        // Menu Toggle
+        let toggle = document.querySelector(".toggle");
+        let navigation = document.querySelector(".navigation");
+        let main = document.querySelector(".main");
+
+        toggle.onclick = function () {
+            navigation.classList.toggle("active");
+            main.classList.toggle("active");
+        };
+    </script>
+
+
+    <!-- ====== ionicons ======= -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

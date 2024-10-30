@@ -1,0 +1,275 @@
+        <!DOCTYPE html>
+        <html lang="en">
+
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="keywords" content="DrFilEz">
+            <meta name="description" content="Efficient health records management">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+            <title>DrFilEz - Efficient Health Records Management</title>
+
+            <!-- Favicon -->
+            <link rel="icon" href="img/logo.jpg">
+
+            <!-- ======= Styles ====== -->
+            <link rel="stylesheet" href="css/style.css">
+
+            <style>
+                .newinput {
+                    width: 600px;
+                    margin: 0 auto;
+                    background-color: var(--white);
+                    padding: 20px;
+                    border-radius: 8px;
+                    box-shadow: 10px 10px 30px rgba(8, 128, 249, 0.08);
+                }
+
+                textarea {
+                    max-width: 300px;
+                }
+            </style>
+        </head>
+
+        <body>
+            <!-- =============== Navigation ================ -->
+            <div class="container">
+                <div class="navigation">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <span class="title">DrFilEz</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="dashboard(Profile).html">
+                                <span class="icon">
+                                    <ion-icon name="home"></ion-icon>
+                                </span>
+                                <span class="title">Profile</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="Patients.html">
+                                <span class="icon">
+                                    <ion-icon name="people"></ion-icon>
+                                </span>
+                                <span class="title">Patients</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="addPatients.html">
+                                <span class="icon">
+                                    <ion-icon name="person-add"></ion-icon>
+                                </span>
+                                <span class="title">Add patients</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="help.html">
+                                <span class="icon">
+                                    <ion-icon name="help-circle"></ion-icon>
+                                </span>
+                                <span class="title">Help</span>
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="change_password.html">
+                                <span class="icon">
+                                    <ion-icon name="lock-closed"></ion-icon>
+                                </span>
+                                <span class="title">Password</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="index.html">
+                                <span class="icon">
+                                    <ion-icon name="log-out"></ion-icon>
+                                </span>
+                                <span class="title">Sign Out</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- ========================= Main ==================== -->
+                <div class="main">
+                    <div class="profileTitle" style="text-align: center; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">
+                        <h1>Edit Health Information</h1>
+                    </div>
+
+                    <!-- ======================= Patient ================== -->
+                    <div class="newinput">
+                        <form action="editPatientInfo.php" method="post" enctype="multipart/form-data">
+
+                            <label><b><i><u>Please enter the fields you would like to update or
+                                            modify.</u></i></b></label><br><br>
+
+                            <label for="patientId">Patient Id:</label>
+                            <input type="text" class="textbox" id="patientId" name="patientId" required>
+                            <br><br>
+                            <label for="patientName">Patient Name:</label>
+                            <input type="text" class="textbox" id="patientName" name="patientName" required>
+                            <br><br>
+                            <label for="dob">Date of Birth:</label>
+                            <input type="date" class="textbox" id="dob" name="dob" required>
+                            <br><br>
+                            <label for="age">Age:</label>
+                            <input type="number" class="textbox" id="age" name="age" required>
+                            <br><br>
+                            <label for="gender">Gender: </label>
+                            <select id="gender" name="gender" required>
+                                <option value="" disabled selected>--select--</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                            <br><br><br>
+                            <label for="bloodGroup">Blood Group:</label>
+                            <input type="text" class="textbox" id="bloodGroup" name="bloodGroup" required>
+                            <br><br>
+                            <label for="aadharNo">Aadhar Number:</label>
+                            <input type="tel" class="textbox" id="aadharNo" name="aadharNo" required>
+                            <br><br>
+                            <label for="contactNo">Contact Number:</label>
+                            <input type="tel" class="textbox" id="contactNo" name="contactNo" required>
+                            <br><br>
+                            <label for="econtactNo">Emergency Contact Number:</label>
+                            <input type="tel" class="textbox" id="econtactNo" name="econtactNo" required>
+                            <br><br>
+                            <label for="address">Address:</label><br>
+                            <textarea id="address" name="address" rows="5" cols="108" required></textarea>
+                            <br><br>
+                            <label for="medicalHistory">Medical History:<br>(Allergies, Past illnesses, Surgeries,
+                                Chronic
+                                conditions, Family medical history)</label><br>
+                            <textarea id="medicalHistory" name="medicalHistory" rows="5" cols="108" required></textarea>
+                            <br><br>
+                            <label for="medicalReport">Upload Medical Reports:</label>
+                            <input type="file" class="textbox" id="medicalReport" name="medicalReport"
+                                accept=".pdf, .doc, .docx" multiple>
+                            <br><br>
+                            <label for="doctorPrescription">Doctor's Prescription:</label><br>
+                            <textarea id="doctorPrescription" name="doctorPrescription" rows="5" cols="108"></textarea>
+                            <br><br>
+                            <label for="healthInsurance">Health Insurance Information:</label><br>
+                            <textarea id="healthInsurance" name="healthInsurance" rows="5" cols="108"
+                                required></textarea>
+                            <br><br>
+                            <label for="insurancePhoto">Upload Health Insurance Proof:</label>
+                            <input type="file" class="textbox" id="insurancePhoto" name="insurancePhoto"
+                                accept=".jpg, .jpeg, .png" multiple>
+                            <br><br>
+                            <label for="addInfo">Additional Information:</label><br>
+                            <textarea id="addInfo" name="addInfo" rows="5" cols="108" required></textarea>
+                            <br><br>
+                            <label for="addDocs">Upload Health Insurance Proof:</label>
+                            <input type="file" class="textbox" id="addDocs" name="addDocs" accept=".jpg, .jpeg, .png"
+                                multiple>
+                            <br><br>
+                            <label for="photo">Upload Patient's Photo:</label>
+                            <input type="file" class="textbox" id="photo" name="photo" accept=".jpg, .jpeg, .png"
+                                multiple>
+                            <br><br>
+                            <input type="submit" value="Save" class="Submit"
+                                style="background-color: #0860e4; color: white;">
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- =========== Scripts =========  -->
+            <script src="js/mainDashboard.js"></script>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+    // Get the patientId from the URL or other source
+    const patientId = 'patientId';
+
+    fetch('searchPatients.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'search_term=' + encodeURIComponent(patientId),
+    })
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (patients) {
+        console.log('Patients:', patients);
+
+        if (Object.keys(patients).length !== 0) {
+            const patient = patients[0];
+
+            // Only send patientId to the server
+            fetch('updatePatientSession.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ patientId: patient.patientId }),
+            })
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (result) {
+                if (result.success) {
+                    console.log('PatientId sent to the server successfully.');
+                } else {
+                    console.error('Failed to send patientId to the server:', result.message);
+                }
+            })
+            .catch(function (error) {
+                console.error('Error sending patientId to the server:', error);
+            });
+
+            // Update HTML elements with patient data
+            document.getElementById('patientId').value = patient.patientId || '';
+            document.getElementById('patientName').value = patient.patientName || '';
+            document.getElementById('dob').value = patient.dob || '';
+            document.getElementById('age').value = patient.age || '';
+            document.getElementById('gender').value = patient.gender || '';
+            document.getElementById('bloodGroup').value = patient.bloodGroup || '';
+            document.getElementById('aadharNo').value = patient.aadharNo || '';
+            document.getElementById('contactNo').value = patient.contactNo || '';
+            document.getElementById('econtactNo').value = patient.econtactNo || '';
+            document.getElementById('address').value = patient.address || '';
+            document.getElementById('medicalHistory').value = patient.medicalHistory || '';
+        } else {
+            console.log('Patient not found.');
+        }
+    })
+    .catch(function (error) {
+        console.error('Error fetching patient data:', error);
+    });
+              
+
+                    function previewImage(imageName, previewId) {
+                        const preview = document.getElementById(previewId);
+
+                        if (imageName) {
+                            preview.src = "uploads/" + imageName;
+                        } else {
+                            preview.src = "";
+                        }
+                    }
+                });
+            </script>
+
+
+
+
+            <!-- ====== ionicons ======= -->
+            <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        </body>
+
+        </html>

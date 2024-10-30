@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="DrFilEz">
+    <meta name="description" content="Efficient health records management">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>DrFilEz - Efficient Health Records Management</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/logo.jpg">
+
+    <!-- ======= Styles ====== -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            display: flex;
+        }
+
+        form {
+            display: flex;
+            align-items: center;
+            margin-left: 30%;
+            border: none;
+            box-shadow: none;
+        }
+
+        .details table {
+            width: 100%;
+            border-collapse: collapse;
+            position: absolute;
+            top: 30%;
+            left: 62%;
+            transform: translate(-50%, -50%);
+        }
+    
+
+        #search-input {
+            max-width: 100%;
+            border: none;
+            margin-top: 20px;
+            box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        #search-button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            font-size: 18px;
+            box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        #introductory-text {
+            width: 600px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 10px 10px 30px rgba(8, 128, 249, 0.08);
+        }
+
+        #error-message {
+            width: 600px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 10px 10px 30px rgba(8, 128, 249, 0.08);
+            color: red;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .recentOrders table {
+            margin-top: 10em;
+            width: 125%;
+            table-layout: fixed;
+            border-collapse: collapse;
+        }
+
+        .recentOrders td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        #userPhoto {
+            text-align: center;
+        }
+
+        #userPhoto img {
+            max-width: 100%;
+            height: auto;
+            max-height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="title">DrFilEz</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="dashboard(Profile).html">
+                        <span class="icon">
+                            <ion-icon name="home"></ion-icon>
+                        </span>
+                        <span class="title">Profile</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Patients.html">
+                        <span class="icon">
+                            <ion-icon name="people"></ion-icon>
+                        </span>
+                        <span class="title">Patients</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="addPatients.html">
+                        <span class="icon">
+                            <ion-icon name="person-add"></ion-icon>
+                        </span>
+                        <span class="title">Add patients</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="help.html">
+                        <span class="icon">
+                            <ion-icon name="help-circle"></ion-icon>
+                        </span>
+                        <span class="title">Help</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="change_password.html">
+                        <span class="icon">
+                            <ion-icon name="lock-closed"></ion-icon>
+                        </span>
+                        <span class="title">Password</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="index.html">
+                        <span class="icon">
+                            <ion-icon name="log-out"></ion-icon>
+                        </span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ========================= Main ==================== -->
+    <div class="main">
+        <div class="topbar">
+            <div class="toggle">
+                <ion-icon name="menu-outline"></ion-icon>
+            </div>
+        </div>
+
+        <!-- ================ Profile ================= -->
+        <div class="pwTitle" style=" text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);margin-bottom: 0%;">
+            <h1>Search Patients</h1>
+        </div>
+        <form id="search-form" action="searchPatients.php" method="post" enctype="multipart/form-data">
+            <input type="text" id="search-input" name="search_term" placeholder="Search patients by id/name">
+            <button id="search-button" type="submit">Search</button>
+        </form>
+
+        <div id="introductory-text">
+            <p>Search for any patients by their unique ID to access their detailed health records...<br><br>NOTE:
+                Nothing will be displayed if the ID doesn't exist. Please enter the ID correctly.</p>
+        </div>
+       
+        <div id="error-message" style="display: none;">    </div>
+
+
+        <!-- ================ Profile Details ================= -->
+        <div class="details" style="margin-top: 0;margin-left: 0%;">
+            <div class="recentOrders">
+
+                <table style="display: none;">
+                    <td rowspan="8" style="vertical-align: top;">
+                        <div id="userPhoto"></div>
+                    </td>
+                    <tr>
+                        <td>Name: </td>
+                        <td id="name"></td>
+                    </tr>
+                    <tr>
+                        <td>ID: </td>
+                        <td id="patientId"></td>
+                    </tr>
+                    <tr>
+                        <td>Date of Birth: </td>
+                        <td id="dob"></td>
+                    </tr>
+                    <tr>
+                        <td>Age: </td>
+                        <td id="age"></td>
+                    </tr>
+                    <tr>
+                        <td>Gender: </td>
+                        <td id="gender"></td>
+                    </tr>
+                    <tr>
+                        <td>Blood Group: </td>
+                        <td id="blood"></td>
+                    </tr>
+                    <tr>
+                        <td>Contact Number: </td>
+                        <td id="contact_number"></td>
+                    </tr>
+                    <tr>
+                        <td>Aadhar Number: </td>
+                        <td id="aadhar_number" colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td>Emergency Contact Number: </td>
+                        <td id="em_contact_number" colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td>Address: </td>
+                        <td id="address" colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td>Medical History: </td>
+                        <td id="medical_history" colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td>Medical Reports: </td>
+                        <td id="medical_report" colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td>Doctor's Prescription: </td>
+                        <td id="prescription" colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td>Health Insurance: </td>
+                        <td id="health_insurance" colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td>Health Insurance Proof: </td>
+                        <td id="insurance_proof" colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td>Additional Info: </td>
+                        <td id="add_info" colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td>Additional Documents: </td>
+                        <td id="add_docs" colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <a href="editPatientInfo.html" style="text-decoration: none; margin-right: 45%;">
+                                <!-- <a href="editPatientInfo.html?patientId=<?php echo $patient['patientId']; ?>" style="text-decoration: none; margin-right: 45%;"> -->
+                                <button class="my-button">
+                                    Edit Information
+                                </button>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- =========== Scripts =========  -->
+        <script src="js/mainDashboard.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Select the form and add an event listener for form submission
+                const searchForm = document.getElementById("search-form");
+                const patientDetails = document.querySelector(".recentOrders table");
+                const introductoryText = document.getElementById("introductory-text");
+                const errorMessage = document.getElementById("error-message");
+
+                searchForm.addEventListener("submit", function (event) {
+                    event.preventDefault(); // Prevent the default form submission behavior
+
+                    // Get the search term from the input field
+                    const searchTerm = document.getElementById("search-input").value;
+
+                    // Make an AJAX request to the server
+                    fetch("searchPatients.php", {
+                            method: "POST",
+                            body: new URLSearchParams({
+                                search_term: searchTerm,
+                            }),
+                            headers: {
+                                "Content-Type": "application/x-www-form-urlencoded",
+                            },
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            // Check if the response contains the "message" property
+                            if ("message" in data) {
+                                errorMessage.style.display = "block"; // Show the error message
+                                errorMessage.textContent = data.message;
+                                patientDetails.style.display = "none"; // Hide the table
+                                introductoryText.style.display = "none";//hide initial text
+                            } else {
+                                // If patients are found, update the HTML content with the data
+                                introductoryText.style.display = "none"; // Hide introductory text after search
+                                errorMessage.style.display = "none";
+                                patientDetails.style.display = "table"; // Show the table
+                                updatePatientDetails(data); // Pass the entire array of patients
+                            }
+                        })
+                        .catch(error => console.error("Error:", error));
+                });
+
+                // Function to update the HTML content with patient details
+                function updatePatientDetails(patients) {
+                    // Assuming you want to display the details of the first patient in the array
+                    const patient = patients[0];
+
+                    // Function to handle empty values and display "N/A"
+                    function handleEmpty(value) {
+                        return value ? value : "N/A";
+                    }
+
+                    document.getElementById("name").textContent = handleEmpty(patient.patientName);
+                    document.getElementById("patientId").textContent = handleEmpty(patient.patientId);
+                    document.getElementById("dob").textContent = handleEmpty(patient.dob);
+                    document.getElementById("age").textContent = handleEmpty(patient.age);
+                    document.getElementById("gender").textContent = handleEmpty(patient.gender);
+                    document.getElementById("blood").textContent = handleEmpty(patient.bloodGroup);
+                    document.getElementById("contact_number").textContent = handleEmpty(patient.contactNo);
+                    document.getElementById("aadhar_number").textContent = handleEmpty(patient.aadharNo);
+                    document.getElementById("em_contact_number").textContent = handleEmpty(patient.econtactNo);
+                    document.getElementById("address").textContent = handleEmpty(patient.address);
+                    document.getElementById("medical_history").textContent = handleEmpty(patient
+                        .medicalHistory);
+                    document.getElementById("medical_report").textContent = handleEmpty(patient.medicalReport);
+                    document.getElementById("prescription").textContent = handleEmpty(patient
+                        .doctorPrescription);
+                    document.getElementById("health_insurance").textContent = handleEmpty(patient
+                        .healthInsurance);
+                    document.getElementById("insurance_proof").textContent = handleEmpty(patient
+                        .insurancePhoto);
+                    document.getElementById("add_info").textContent = handleEmpty(patient.addInfo);
+
+                    // Update the "View Report" link
+                    const medicalReportElement = document.getElementById("medical_report");
+                    const medicalReportLink = document.createElement("a");
+
+                    const medicalReportValue = handleEmpty(patient.medicalReport);
+
+                    if (medicalReportValue !== "N/A") {
+                        medicalReportLink.href = medicalReportValue;
+                        medicalReportLink.textContent = "View Report";
+                        medicalReportLink.style.color = "#808080";
+                        medicalReportLink.target = "_blank"; // Open link in a new tab/window
+                        medicalReportElement.innerHTML = ""; // Clear previous content
+                        medicalReportElement.appendChild(medicalReportLink);
+                    } else {
+                        // If no medical report link is available, display "N/A"
+                        medicalReportElement.textContent = "N/A";
+                    }
+
+                    // Update the "View Report" link for Insurance Proof
+                    const insuranceProofElement = document.getElementById("insurance_proof");
+                    const insuranceProofLink = document.createElement("a");
+
+                    const insuranceProofValue = handleEmpty(patient.insurancePhoto);
+
+                    if (insuranceProofValue !== "N/A") {
+                        insuranceProofLink.href = insuranceProofValue;
+                        insuranceProofLink.textContent = "View Insurance Proof";
+                        insuranceProofLink.style.color = "#808080"; // Set the desired color
+                        insuranceProofLink.target = "_blank"; // Open link in a new tab/window
+                        insuranceProofElement.innerHTML = ""; // Clear previous content
+                        insuranceProofElement.appendChild(insuranceProofLink);
+                    } else {
+                        // If no insurance proof link is available, display "N/A"
+                        insuranceProofElement.textContent = "N/A";
+                    }
+
+                    // Additional docs
+                    const addDocsElement = document.getElementById("add_docs");
+                    const addDocsLink = document.createElement("a");
+
+                    const addDocsValue = handleEmpty(patient.addDocs);
+                    if (addDocsValue !== "N/A") {
+                        addDocsLink.href = addDocsValue;
+                        addDocsLink.textContent = "View documents";
+                        addDocsLink.style.color = "#808080";
+                        addDocsLink.target = "_blank"; // Open link in a new tab/window
+                        addDocsElement.innerHTML = ""; // Clear previous content
+                        addDocsElement.appendChild(addDocsLink);
+                    } else {
+                        // If no document link is available, display "N/A"
+                        addDocsElement.textContent = "N/A";
+                    }
+
+                    // Update the image source
+                    const userPhoto = document.getElementById("userPhoto");
+                    userPhoto.innerHTML = `<img src="${patient.photo}" alt="Patient Photo">`;
+                }
+            });
+        </script>
+        <!-- ====== ionicons ======= -->
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

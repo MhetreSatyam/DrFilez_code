@@ -1,0 +1,15 @@
+RewriteEngine On
+RewriteRule ^signup/?$ SignupNew.html [L]
+RewriteRule ^login/?$ LoginNew.html [L]
+RewriteRule ^home/?$ index.html [L]
+RewriteRule ^search-for-doctors/?$ display_doctors.html [L]
+RewriteRule ^help/?$ main_help.html [L]
+RewriteRule ^contact-us/?$ contact.html [L]
+RewriteRule ^terms-and-conditions/?$ terms.html [L]
+RewriteRule ^get-started/?$ getStarted.html [L]
+RewriteRule ^your-profile/?$ dashboard(Profile).html [L]
+RewriteRule ^search-patients/?$ Patients.html [L]
+RewriteRule ^add-new-patients/?$ addPatients.html [L]
+RewriteRule ^change-password/?$ change_password.html [L]
+RewriteRule ^home/?$ index.html [L]
+

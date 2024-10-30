@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="DrFilEz">
+    <meta name="description" content="Efficient health records management">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>DrFilEz - Efficient Health Records Management</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="img/logo.jpg">
+    
+    <!-- ======= Styles ====== -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .newinput {
+            width: 600px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 10px 10px 30px rgba(8, 128, 249, 0.08);
+        }
+
+        textarea{
+        max-width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+<!-- =============== Navigation ================ -->
+<div class="container">
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="#">
+                <span class="title">DrFilEz</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="dashboard(Profile).html">
+                    <span class="icon">
+                      <ion-icon name="home"></ion-icon>
+                    </span>
+                    <span class="title">Profile</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="Patients.html">
+                    <span class="icon">
+                      <ion-icon name="people"></ion-icon>
+                    </span>
+                    <span class="title">Patients</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="addPatients.html">
+                    <span class="icon">
+                      <ion-icon name="person-add"></ion-icon>
+                    </span>
+                    <span class="title">Add patients</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="help.html">
+                    <span class="icon">
+                      <ion-icon name="help-circle"></ion-icon>
+                    </span>
+                    <span class="title">Help</span>
+                </a>
+            </li>
+
+          
+            <li>
+                <a href="change_password.html">
+                    <span class="icon">
+                      <ion-icon name="lock-closed"></ion-icon>
+                    </span>
+                    <span class="title">Password</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="index.html">
+                    <span class="icon">
+                      <ion-icon name="log-out"></ion-icon>
+                    </span>
+                    <span class="title">Sign Out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+            </div>
+
+            <!-- ======================= Title ================== -->
+            
+            <div class="pwTitle" style=" text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);"><h1>Help</h1></div>
+
+
+            <!-- ================ Order Details List ================= -->
+            <div class="newinput">
+                <section id="faq">
+                    <ul>
+                        <li>
+                            <h3>How can we access health records on DrFilEZ?</h3><br>
+                            <p>- To access your health records, log in to your DrFilEZ account and navigate to
+                                the 'Health Records' section.</p>
+                        </li><br><br>
+                        <li>
+                            <h3>Is health information secure on DrFilEZ?</h3><br>
+                            <p>- Yes, DrFilEZ uses AlgoRand's blockchain network to protect your
+                                health data.</p>
+                        </li><br><br>
+                        <li>
+                            <h3>Should we share health records with healthcare provider?</h3><br>
+                            <p>- Yes, DrFilEZ allows you to securely share your health records with authorized
+                                healthcare professionals.</p>
+                        </li><br><br>
+                        <!-- Will add more FAQs as needed -->
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========== Scripts =========  -->
+    <script src="js/mainDashboard.js"></script>
+
+    <!-- ====== ionicons ======= -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DrFilEz - Efficient Health Records Management</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/logo.jpg">
+
+    <!-- ======= Styles ====== -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .newinput {
+            width: 600px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 10px 10px 30px rgba(8, 128, 249, 0.08);
+        }
+
+        textarea {
+            max-width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="title">DrFilez</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="dashboard(Profile).html">
+                        <span class="icon">
+                            <ion-icon name="home"></ion-icon>
+                        </span>
+                        <span class="title">Profile</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Patients.html">
+                        <span class="icon">
+                            <ion-icon name="people"></ion-icon>
+                        </span>
+                        <span class="title">Patients</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="addPatients.html">
+                        <span class="icon">
+                            <ion-icon name="person-add"></ion-icon>
+                        </span>
+                        <span class="title">Add patients</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="help.html">
+                        <span class="icon">
+                            <ion-icon name="help-circle"></ion-icon>
+                        </span>
+                        <span class="title">Help</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="change_password.html">
+                        <span class="icon">
+                            <ion-icon name="lock-closed"></ion-icon>
+                        </span>
+                        <span class="title">Password</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="index.html">
+                        <span class="icon">
+                            <ion-icon name="log-out"></ion-icon>
+                        </span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+
+            <!-- ================ Profile Details ================= -->
+            <div class="newinput">
+                <form class="container" action="editProfile.php" method="post" enctype="multipart/form-data">
+                    <h2 style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">Edit Profile</h2><br><br><br>
+
+                    <label><b><i><u>Please enter the fields you would like to update or
+                                    modify.</u></i></b></label><br><br>
+
+                    <label for="name">Name</label>
+                    <input type="text" class="textboxx" id="name" name="name" readonly>
+
+                    <label for="first_name">First Name</label>
+                    <input type="text" class="textboxx" id="first_name" name="first_name"
+                        placeholder="Enter if you want to change...">
+
+                    <label for="middle_name">Middle Name</label>
+                    <input type="text" class="textboxx" id="middle_name" name="middle_name"
+                        placeholder="Enter if you want to change...">
+
+                    <label for="last_name">Last Name</label>
+                    <input type="text" class="textboxx" id="last_name" name="last_name"
+                        placeholder="Enter if you want to change...">
+
+                    <label for="username">Username</label>
+                    <input type="text" class="textboxx" id="username" name="username" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" class="textboxx" id="email" name="email" required>
+
+                    <br><br>
+                    <label for="gender">Gender</label><br>
+                    <select id="gender" name="gender" class="textbox" required>
+                        <option value="" disabled selected>--select--</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Others">Others</option>
+                    </select><br><br>
+
+                    <label for="civil">Civil Status</label><br>
+                    <select id="civil" name="civil" class="textbox" required>
+                        <option value="" disabled selected>--select--</option>
+                        <option value="Married">Married</option>
+                        <option value="Single">Single</option>
+                    </select><br><br>
+
+
+                    <label for="age">Age</label>
+                    <input type="number" class="textbox" id="age" name="age" required>
+
+                    <label for="contact_number">Contact Number</label>
+                    <input type="tel" class="textbox" id="contact_number" name="contact_number" pattern="[0-9]{10}"
+                        required><br><br>
+
+                    <label for="address">Address</label><br>
+                    <textarea class="textbox" id="address" name="address" cols="100%" rows="6"
+                        required></textarea><br><br><br>
+
+                    <label for="qualifications">Qualifications</label><br>
+                    <textarea class="textbox" id="qualifications" name="qualifications" cols="100%" rows="6"
+                        required></textarea><br><br><br>
+
+                    <label for="specialization">Specializations</label><br>
+                    <textarea class="textbox" id="specialization" name="specialization" cols="100%" rows="6"
+                        required></textarea><br><br><br>
+
+                    <label for="working_at">Working at: </label><br>
+                    <textarea class="textbox" id="working_at" name="working_at" cols="100%" rows="6"
+                        required></textarea><br><br><br>
+
+                    <label for="experience">Clinical Experience: </label><br>
+                    <textarea class="textbox" id="experience" name="experience" cols="100%" rows="6"
+                        required></textarea><br><br>
+
+                    <!-- For User's Photograph -->
+                    <label for="userPhoto">User's photograph</label><br>
+                    <input type="file" id="userPhoto" name="userPhoto" onchange="previewImage(this, 'userPhotoPreview')"
+                        value="default_user_photo.jpg">
+                    <img id="userPhotoPreview" src="" alt="User Photo Preview"
+                        style="max-width: 200px; max-height: 200px;"><br>
+
+                    <!-- For Degree Certificate -->
+                    <label for="degree_certificate">Degree Certificate Photo</label><br>
+                    <input type="file" id="degree_certificate" name="degree_certificate" multiple
+                        onchange="previewImage(this, 'degreeCertificatePreview')"
+                        value="default_degree_certificate.pdf">
+                    <div id="degreeCertificatePreview"></div><br>
+
+                    <input type="hidden" id="existingUserPhotoFileName" name="existingUserPhotoFileName" value="">
+                    <input type="hidden" id="existingDegreeCertificateFileName" name="existingDegreeCertificateFileName"
+                        value="">
+
+                    <input type="submit" value="Save" id="submit2" style="background-color: #0860e4; color: white;">
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ====== ionicons ======= -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        // Fetch existing user data and pre-fill the form
+        fetch('profile.php')
+            .then(response => response.json())
+            .then(userData => {
+                if (Object.keys(userData).length !== 0) {
+                    document.getElementById('name').value = userData.name || '';
+                    // Pre-fill form fields with existing user data
+                    document.getElementById('first_name').value = userData.first_name || '';
+                    document.getElementById('middle_name').value = userData.middle_name || '';
+                    document.getElementById('last_name').value = userData.last_name || '';
+                    document.getElementById('username').value = userData.username || '';
+                    document.getElementById('email').value = userData.email || '';
+                    document.getElementById('gender').value = userData.gender || '';
+                    document.getElementById('civil').value = userData.civil || '';
+                    document.getElementById('age').value = userData.age || '';
+                    document.getElementById('contact_number').value = userData.contact_number || '';
+                    document.getElementById('address').value = userData.address || '';
+                    document.getElementById('qualifications').value = userData.qualifications || '';
+                    document.getElementById('specialization').value = userData.specialization || '';
+                    document.getElementById('working_at').value = userData.working_at || '';
+                    document.getElementById('experience').value = userData.experience || '';
+                    document.getElementById('existingUserPhotoFileName').value = userData.userPhoto || '';
+                    document.getElementById('existingDegreeCertificateFileName').value = userData
+                        .degree_certificate || '';
+                    // For userPhoto
+                    if (userData.userPhoto) {
+                        document.getElementById('userPhotoPreview').src = "uploads/" + userData.userPhoto;
+                    }
+
+                    // For degree_certificate
+                    if (userData.degree_certificate) {
+                        document.getElementById('degreeCertificatePreview').innerHTML =
+                            `<a href="uploads/${userData.degree_certificate}" target="_blank" style="color: #808080;">View Degree Certificate</a>`;
+                    }
+                } else {
+                    // Handle case where userData is empty (user not found)
+                    console.log('User not found.');
+                }
+            })
+            .catch(error => {
+                // Handle fetch error
+                console.error('Error fetching user data:', error);
+            });
+
+        //For preview of images
+        function previewImage(input, previewId) {
+            const preview = document.getElementById(previewId);
+
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                preview.src = "";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
